@@ -267,6 +267,22 @@ my heart 💖. I am wishing you happy birthday Binu.🍁🍀🌷🌸💝💖💘
     close.addEventListener('click', function () {
         boxmail.classList.remove('active')
     })
+
+    window.addEventListener("load", function() {
+      let music = document.getElementById("bg-music");
+      music.muted = false;
+      let playPromise = music.play();
+
+    
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          document.addEventListener("click", function() {
+            music.muted = false;
+            music.play();
+          }, { once: true });
+        });
+      }
+    });
 </script>
 
 </html>
